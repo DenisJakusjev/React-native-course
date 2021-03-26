@@ -13,7 +13,7 @@ const App = () => {
 
     //Лучший вариант
     //Лучший вариант если новый стейт зависит от старой копии
-    changeGoals((prevGoalArray) => prevGoalArray.concat(newGoal))
+    changeGoals((prevGoalArray) => [...prevGoalArray,newGoal])
   }
   return (
     <div className="course-goals">
