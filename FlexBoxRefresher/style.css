@@ -1,0 +1,95 @@
+html{
+    background-color: #fa923f;
+}
+
+body{
+    background-color: yellow;
+    padding: 10px;
+    margin: 0%;
+}
+
+/* Flexbox */
+/* Parent */
+.parent {
+    background-color: #f073e1;
+    margin: 10px;
+    padding: 30px;
+    height: 500px;
+    /* Enabling Flex - makes this Flex Container */
+    display: flex;
+    /* display:inline-flex makes main div inline, but content within flex */
+    flex-flow:row nowrap; 
+    /* This is default */
+    /* Row - flex-direction */
+    /* nowrap - flex-wrap */
+    /* wrap-reverse - reverses all items up */
+    /* Row/Column reverse makes it wrap from other side */
+
+    /* align-items: strech - is default and streches all */
+    /* of the content to fill flexbox height */
+
+    /* center makes childrens take as mutch height as content in them is req */
+    /* and with column it will center all items */
+    /* Because center aligning items in center of cross-ax */
+    /* In the end there is shit ton of aligns and all of them is connected to main/cross axis */
+    /* Baseline - will align items to their content */
+    align-items: center;
+    /* Strech default */
+    /* center - groups items in center */
+    /* flex-start/end will justify on start/end of main axis */
+    justify-content:flex-start;
+    /* It will try to fill items to eachouther in center */
+    /* align-content: center; */
+
+    
+
+}
+
+.div1 {
+    background-color: #f800db;
+    margin: 5px;
+    /* Flex props for child */
+    /* Default order - 0 */
+    
+}
+
+.div2 {
+    background-color:#f800db ;
+    margin: 5px;
+    width: 150px;
+    font-size: 30px;
+    /* align-self is used on cross axis */
+    /* align-self: flex-end; */
+}
+
+.div3 {
+    background-color:#f800db ;
+    margin: 5px;
+    height: 150px;
+    
+    
+}
+.div4 {
+    background-color:#f800db ;
+    margin: 5px;
+    height: 150px;
+    width: 150px;
+    
+}
+.div5 {
+    background-color:#f800db ;
+    margin: 5px;
+    width: 200px;
+    /* FlexChild */
+    flex:1 5 auto; /*i = flex-grow v=flex-shrink y=flex-basis*/
+    /* Flex-grow = width of this item will be streached till the limit of the screen */
+    /* more grow you give - it will multiply how width it will streach */
+    /* Shrink gives how fast item will reach minimal width that this content takes */
+}
+.div6 {
+    background-color:#f800db ;
+    margin: 5px;
+    width: 200px;
+    flex:2 1 auto;
+    
+}
