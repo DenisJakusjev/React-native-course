@@ -5,9 +5,11 @@ import React from 'react'
 import WishList from "./WishList/WishList"
 //---- flexBox guide
 import FlexBoxGuide from "./Components/flexRNdive/flexboxRNguide"  
+//GuessAnumber
+import GuessAnumber from "./GuessANumberApp/GuessNumber"
 const App = () => {
   return (
-    <WishList/>
+    <GuessAnumber/>
   )
 }
 
