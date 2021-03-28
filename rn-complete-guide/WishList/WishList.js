@@ -13,6 +13,12 @@ export default function WishList() {
     //State
     const [goalList, setGoalList] = useState([]);
     const [isAddMode, setIsAddMode] = useState(false);
+    //CLG any state here to track how it changes after any setStateHandlers because its here it really re-set the values
+    //Not in the functions
+    //We can CLG in functions if we use classBased components
+    console.log("Re-rendered GoalList")
+    console.log(goalList);
+
     const addGoalHandler = (item) => {
         let obj = { key: Math.random().toString(), value: item }
         setGoalList((prevState) => [...prevState, obj])
@@ -26,8 +32,8 @@ export default function WishList() {
         //     setGoalList(array);
         // }
         //One more way of deleting FILTER
-        setGoalList((prevState)=>{
-            return(
+        setGoalList((prevState) => {
+            return (
                 prevState.filter((goal) => goal !== item)
             )
         })
@@ -36,7 +42,7 @@ export default function WishList() {
     return (
         <View style={CSS.container}>
             {/* Input */}
-            <Button title="add New Goal" onPress={()=>setIsAddMode((prevState)=>!prevState)}/>
+            <Button title="add New Goal" onPress={() => setIsAddMode((prevState) => !prevState)} />
             <GoalInput addToList={addGoalHandler} visible={isAddMode} setVisibileMode={setIsAddMode} />
             {/* WishList */}
             <FlatList data={goalList}
