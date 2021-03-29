@@ -16,6 +16,7 @@ import Card from "../components/Card"
 import ICInput from "../components/InputComponent"
 import Color from "../constans/colors"
 import SelectedNum from "../components/CardNumBox"
+import MainButton from '../components/MainButton'
 
 const StartGameScreen = (props) => {
     const [enteredValue, setEnteredValue] = useState("");
@@ -45,7 +46,7 @@ const StartGameScreen = (props) => {
         setConfirm(false)
     }
 
-    const gameStartHandler=()=>{
+    const gameStartHandler = () => {
         setEnteredValue("");
         props.setUserNumber(selectedNumber)
     }
@@ -73,22 +74,17 @@ const StartGameScreen = (props) => {
                     />
 
                     <View style={CSS.SGSButtonContainer}>
-                        <View style={CSS.SGSButton} onPress={() => { }}>
-                            <Button title="Start" color={Color.primary} onPress={confirmInputHandler} />
-                        </View>
-                        <View style={CSS.SGSButton} >
-                            <Button title="Reject" color={Color.accent} onPress={rejectHandler} />
-                        </View>
+                        <MainButton onPress={confirmInputHandler}>Start</MainButton>
+                        <MainButton onPress={rejectHandler}>Reject</MainButton>
                     </View>
                 </Card>
                 {confirmation != false &&
-                        <Card style={CSS.SGSStatusCard}>
+                    <Card style={CSS.SGSStatusCard}>
                         <Text>You selected</Text>
                         <SelectedNum>{selectedNumber}</SelectedNum>
-                        <View style={CSS.SGSButton}>
-                            <Button  title="START GAME" color={Color.accent} onPress={gameStartHandler}/>
-                            </View>
-                        </Card>}
+
+                        <MainButton onPress={gameStartHandler}>Start Game</MainButton>
+                    </Card>}
             </View>
         </TouchableWithoutFeedback>
     )

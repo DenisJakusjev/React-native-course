@@ -16,7 +16,8 @@ const CSS = StyleSheet.create({
     },
     headerTitle: {
         color: "black",
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: "OpenStansB"
     },
     //Have no height and width
     card: {
@@ -30,7 +31,8 @@ const CSS = StyleSheet.create({
         //We radius works for elevation
         elevation: 12,
         borderRadius: 10,
-        backgroundColor: "white"
+        backgroundColor: "white",
+
     },
 
 
@@ -42,7 +44,9 @@ const CSS = StyleSheet.create({
     },
     SGSTitle: {
         fontSize: 20,
-        marginVertical: 10
+        marginVertical: 10,
+        fontFamily: "OpenStansB",
+        color: "black"
     },
     SGSInputContainer: {
         width: 300,
@@ -51,6 +55,8 @@ const CSS = StyleSheet.create({
     },
     SGSInputBoxText: {
         paddingVertical: 20,
+        fontSize: 20,
+        fontFamily: "OpenStans",
     },
     SGSButtonContainer: {
         flexDirection: "row",
@@ -61,10 +67,10 @@ const CSS = StyleSheet.create({
     },
     SGSButton: {
         width: 90,
-        borderWidth: 2,
-        borderColor: "black",
-        borderRadius: 8,
-       
+        height: 40,
+        margin: 10,
+
+
 
     },
     SGSInput: {
@@ -79,33 +85,86 @@ const CSS = StyleSheet.create({
         borderBottomWidth: 1,
         marginVertical: 10,
     },
-    SGSStatusCard:{
-        margin:20,
+    SGSStatusCard: {
+        margin: 20,
         maxWidth: "80%",
         alignItems: "center",
-        padding:20
+        padding: 20
     },
-    SGSStatusCardNumBox:{
-        borderWidth:3,
-        borderColor:Color.primary,
-        marginBottom:20,
-        borderRadius:70,
-        padding:10,
-        alignItems:"center",
-        justifyContent:"center"
+    SGSStatusCardNumBox: {
+        borderWidth: 3,
+        borderColor: Color.primary,
+        marginBottom: 20,
+        borderRadius: 70,
+        padding: 10,
+        alignItems: "center",
+        justifyContent: "center"
     },
-    SGSStatusCardNum:{
-        fontSize:60,
-        margin:10
+    SGSStatusCardNum: {
+        fontSize: 60,
+        margin: 10
     },
-    GSButtonCard:{
-        flexDirection:"row",
-        justifyContent:"space-around",
-        marginTop:20,
-        width:300,
-        maxWidth:"80%"
+    GSButtonCard: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
+        marginTop: 20,
+        width: "100%",
+        height: 150,
+    },
+    GOText: {
+        fontFamily: "OpenStans",
+        color: "black",
+
+
+    },
+    image: {
+        width: "100%",
+        height: "100%",
+        padding: 5
+    },
+    imageBox: {
+        borderRadius: 150,
+        borderWidth: 5,
+        borderColor: "black",
+        width: "80%",
+        height: 300,
+        overflow: "hidden",
+        marginVertical: 30
+
+    },
+    GOHighlight: {
+        color: Color.primary,
+        fontFamily: "OpenStansB",
+        fontSize: 20
+    },
+    GOTextCenter: {
+        textAlign: "center"
+    },
+
+    MainButton: {
+        backgroundColor: Color.primary,
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderRadius: 25,
+        
+
+
+    },
+    MainButtonText: {
+        color: "white",
+        fontFamily: "OpenStans",
+        fontSize: 18
+    },
+
+    listItemBox:{
+
+    },
+    listItem:{
+        
     }
- 
+
+
 
 
 })
