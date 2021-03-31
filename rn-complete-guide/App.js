@@ -4,12 +4,12 @@ import React from 'react'
 //WishListApp
 import WishList from "./WishList/WishList"
 //---- flexBox guide
-import FlexBoxGuide from "./Components/flexRNdive/flexboxRNguide"  
+import FlexBoxGuide from "./Components/flexRNdive/flexboxRNguide"
 //GuessAnumber
 import GuessAnumber from "./GuessANumberApp/GuessNumber"
 const App = () => {
   return (
-    <GuessAnumber/>
+    <GuessAnumber />
   )
 }
 

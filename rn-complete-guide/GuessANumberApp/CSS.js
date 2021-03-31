@@ -5,7 +5,7 @@ const CSS = StyleSheet.create({
     //MainAppWindow
     container: {
         flex: 1,
-        
+
     },
     header: {
         width: "100%",
@@ -148,7 +148,7 @@ const CSS = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 25,
-        
+
 
 
     },
@@ -158,40 +158,40 @@ const CSS = StyleSheet.create({
         fontSize: 18
     },
 
-    listItemBox:{
-    borderColor:"gray",
-    padding:15,
-    borderWidth:1,
-    flexDirection:"row",
-    margin:10,
-    justifyContent:"space-around",
-    width:"100%",
-    alignItems:"center"
-    
-    },
-    listItem:{
-       
-    },
-    listItemContainer:{
-       width:"100%",
-        flex:1  ,
+    listItemBox: {
+        borderColor: "gray",
+        padding: 15,
+        borderWidth: 1,
+        flexDirection: "row",
+        margin: 10,
+        justifyContent: "space-around",
+        width: "100%",
+        alignItems: "center"
 
     },
-    listScroll:{
-        flexGrow:1,
-        justifyContent:"flex-end",
-        width:"60%",
-        alignItems:"center"
+    listItem: {
+
+    },
+    listItemContainer: {
+        width: "100%",
+        flex: 1,
+
+    },
+    listScroll: {
+        flexGrow: 1,
+        justifyContent: "flex-end",
+        width: "60%",
+        alignItems: "center"
         // flexDirection:"row",
     },
-    test:{
-        height:50,
-        borderColor:"black",
-        borderTopWidth:2,
-        width:"110%",
-        alignItems:"center",
-        justifyContent:"center",
-        flexDirection:"row"
+    test: {
+        height: 50,
+        borderColor: "black",
+        borderTopWidth: 2,
+        width: "110%",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "row"
     }
 
 

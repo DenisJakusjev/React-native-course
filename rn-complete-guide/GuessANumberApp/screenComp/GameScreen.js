@@ -25,12 +25,12 @@ const generateRandomBetween = (min, max, exclude) => {
 }
 
 
-const renderListItem = (listLengh,itemData ) => {
-   return  <View style={CSS.listItemBox}>
-       <Text style={{...CSS.GOText,...CSS.listItem}}>#{listLengh - itemData.index} </Text>
-       <Text style={{...CSS.GOText,...CSS.listItem}}>{itemData.item}</Text>
-       {console.log(itemData)}
-       </View>
+const renderListItem = (listLengh, itemData) => {
+    return <View style={CSS.listItemBox}>
+        <Text style={{ ...CSS.GOText, ...CSS.listItem }}>#{listLengh - itemData.index} </Text>
+        <Text style={{ ...CSS.GOText, ...CSS.listItem }}>{itemData.item}</Text>
+        {console.log(itemData)}
+    </View>
 }
 const GameScreen = (props) => {
     const initialGuess = generateRandomBetween(1, 100, props.userNumber)
@@ -70,9 +70,9 @@ const GameScreen = (props) => {
 
     return (
         <View style={CSS.SGSWrapper}>
-           
+
             <Card style={CSS.GSButtonCard}>
-            <NumberContainer>{currentGuess}</NumberContainer>
+                <NumberContainer>{currentGuess}</NumberContainer>
                 <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
                 <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
             </Card>
@@ -81,21 +81,21 @@ const GameScreen = (props) => {
                 {pastGuesses.map((guess,index)=> renderListItem(guess, pastGuesses.length - index))}
             </ScrollView>
             </View> */}
-            <FlatList 
-            keyExtractor={(item)=> item} 
-            data={pastGuesses} 
-            renderItem={renderListItem.bind(this,pastGuesses.length)}
-            contentContainerStyle={CSS.listScroll}
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
+            <FlatList
+                keyExtractor={(item) => item}
+                data={pastGuesses}
+                renderItem={renderListItem.bind(this, pastGuesses.length)}
+                contentContainerStyle={CSS.listScroll}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
             />
-            
+
             <View style={CSS.test}>
-                <Text>BOttom</Text>
-                <Text>BOttom</Text>
-                <Text>BOttom</Text></View>
+                <Text>Denis </Text>
+                <Text>Jakusjev </Text>
+                <Text>BottomBar</Text></View>
         </View>
-       
+
 
     )
 }

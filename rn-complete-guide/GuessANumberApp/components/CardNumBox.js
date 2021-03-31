@@ -7,7 +7,7 @@ const CardNumBox = (props) => {
     return (
         <View>
             <View style={CSS.SGSStatusCardNumBox}>
-            <Text style={CSS.SGSStatusCardNum}>{props.children}</Text>
+                <Text style={CSS.SGSStatusCardNum}>{props.children}</Text>
             </View>
         </View>
     )

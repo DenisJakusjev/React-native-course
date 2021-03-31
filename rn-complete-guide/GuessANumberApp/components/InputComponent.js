@@ -4,7 +4,7 @@ import CSS from "../CSS"
 
 const InputComponent = (props) => {
     return (
-       <TextInput {...props} style={{...CSS.ICInput,...props.style}} />
+        <TextInput {...props} style={{ ...CSS.ICInput, ...props.style }} />
     )
 }
 
