@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { View, Alert, ScrollView, Text, FlatList } from 'react-native'
+import { View, Alert, ScrollView, Text, FlatList, Dimensions } from 'react-native'
 import CSS from "../CSS"
 import NumberContainer from "../components/CardNumBox"
 import Card from "../components/Card"
@@ -35,6 +35,8 @@ const GameScreen = (props) => {
     const initialGuess = generateRandomBetween(1, 100, props.userNumber)
     const [currentGuess, setCurrentGuess] = useState(initialGuess)
     const [pastGuesses, setPastGuesses] = useState([initialGuess.toString()]);
+    const [availableDeviceWidth, setAvailableDeviceWidth] = useState(Dimensions.get("window").width);
+    const [availableDeviceHeight, setAvailableDeviceHeight] = useState(Dimensions.get("window").height);
     const currentLow = useRef(1);
     const currentHigh = useRef(100);
 
@@ -64,14 +66,52 @@ const GameScreen = (props) => {
         setPastGuesses((curPrevGuess) => [nextNumber.toString(), ...curPrevGuess]);
         setCurrentGuess(nextNumber);
     };
+ 
+    if(availableDeviceWidth < 350){
+
+        //Something
+    }
 
 
-    return (
+
+    if(availableDeviceHeight < 500) {
+        console.log("Dim < 500")
+        console.log(Dimensions.get("window").height)
+        return (
+            <View style={CSS.SGSWrapper}>
+            
+
+               <Card style={CSS.gameCardDimHorizontal}>
+                <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
+                <NumberContainer>{currentGuess}</NumberContainer>
+                <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
+                </Card>
+            <FlatList
+                keyExtractor={(item) => item}
+                data={pastGuesses}
+                renderItem={renderListItem.bind(this, pastGuesses.length)}
+                contentContainerStyle={CSS.listScroll}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+            />
+
+            <View style={CSS.test}>
+                <Text>Denis </Text>
+                <Text>Jakusjev </Text>
+                <Text>BottomBar</Text></View>
+        </View>
+
+        );
+    }
+    else{
+        return (
         <View style={CSS.SGSWrapper}>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={CSS.GSButtonCard}>
                 <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
+
                 <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
+                
             </Card>
             {/* <View style={CSS.listItemContainer}>
             <ScrollView     >
@@ -95,6 +135,8 @@ const GameScreen = (props) => {
 
 
     )
+    }
+    
 }
 
 export default GameScreen

@@ -1,7 +1,7 @@
 import { StyleSheet , Dimensions} from "react-native"
 import Color from "./constans/colors"
 
-
+console.log("Lol")
 
 const CSS = StyleSheet.create({
     //MainAppWindow
@@ -152,7 +152,7 @@ const CSS = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 25,
-        width:Dimensions.get("window").width / 4,
+        // width:100,
         alignItems:"center"
 
 
@@ -198,6 +198,13 @@ const CSS = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row"
+    },
+    gameCardDimHorizontal : {
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-around",
+        width:"80%"
+
     }
 
 
