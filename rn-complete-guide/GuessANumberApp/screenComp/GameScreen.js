@@ -29,14 +29,12 @@ const renderListItem = (listLengh, itemData) => {
     return <View style={CSS.listItemBox}>
         <Text style={{ ...CSS.GOText, ...CSS.listItem }}>#{listLengh - itemData.index} </Text>
         <Text style={{ ...CSS.GOText, ...CSS.listItem }}>{itemData.item}</Text>
-        {console.log(itemData)}
     </View>
 }
 const GameScreen = (props) => {
     const initialGuess = generateRandomBetween(1, 100, props.userNumber)
     const [currentGuess, setCurrentGuess] = useState(initialGuess)
     const [pastGuesses, setPastGuesses] = useState([initialGuess.toString()]);
-    console.log(pastGuesses)
     const currentLow = useRef(1);
     const currentHigh = useRef(100);
 
@@ -70,9 +68,8 @@ const GameScreen = (props) => {
 
     return (
         <View style={CSS.SGSWrapper}>
-
+            <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={CSS.GSButtonCard}>
-                <NumberContainer>{currentGuess}</NumberContainer>
                 <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
                 <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
             </Card>

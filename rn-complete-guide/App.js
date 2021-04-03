@@ -10,7 +10,7 @@ import GuessAnumber from "./GuessANumberApp/GuessNumber"
 import {Text} from "react-native"
 const App = () => {
   return (
-    <Text>TEXT</Text>
+    <GuessAnumber/>
   )
 }
 

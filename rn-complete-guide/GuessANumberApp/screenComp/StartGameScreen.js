@@ -5,7 +5,9 @@ import {
     Button,
     TouchableWithoutFeedback,
     Keyboard,
-    Alert
+    Alert,
+    Dimensions,
+    ScrollView
 
 } from 'react-native'
 import CSS from "../CSS"
@@ -21,7 +23,8 @@ import MainButton from '../components/MainButton'
 const StartGameScreen = (props) => {
     const [enteredValue, setEnteredValue] = useState("");
     const [confirmation, setConfirm] = useState(false);
-    const [selectedNumber, setSelected] = useState();
+    const [selectedNumber, setSelected] = useState()
+
 
 
     const numberInputHandler = incText => {
@@ -53,6 +56,7 @@ const StartGameScreen = (props) => {
 
 
     return (
+        <ScrollView>
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={CSS.SGSWrapper}>
                 <Text style={CSS.SGSTitle}>Start a new Game!</Text>
@@ -87,6 +91,7 @@ const StartGameScreen = (props) => {
                     </Card>}
             </View>
         </TouchableWithoutFeedback>
+        </ScrollView>
     )
 }
 

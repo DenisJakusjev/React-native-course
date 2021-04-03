@@ -19,7 +19,7 @@ const GameOver = (props) => {
                 />
             </View>
             <Text style={{ ...CSS.GOText, ...CSS.GOTextCenter }}>Your phone needed <Text style={CSS.GOHighlight}>{props.numberOfRounds} </Text>rounds to guess number <Text style={CSS.GOHighlight}>{props.userNum}</Text> </Text>
-            <MainButton onPress={props.gameResetr}>Restart Game</MainButton>
+            <MainButton onPress={props.gameResetr}>RG</MainButton>
         </View>
     )
 }

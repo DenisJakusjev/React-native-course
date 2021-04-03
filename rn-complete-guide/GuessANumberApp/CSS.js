@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet , Dimensions} from "react-native"
 import Color from "./constans/colors"
+
+
 
 const CSS = StyleSheet.create({
     //MainAppWindow
@@ -50,8 +52,10 @@ const CSS = StyleSheet.create({
         color: "black"
     },
     SGSInputContainer: {
-        width: 300,
-        maxWidth: "80%",
+        width: "80%",
+        maxWidth:"95%",
+        minWidth:300,
+        
         alignItems: "center",
     },
     SGSInputBoxText: {
@@ -96,22 +100,22 @@ const CSS = StyleSheet.create({
         borderWidth: 3,
         borderColor: Color.primary,
         marginBottom: 20,
-        borderRadius: 70,
+        borderRadius: 15,
         padding: 10,
         alignItems: "center",
         justifyContent: "center"
     },
     SGSStatusCardNum: {
-        fontSize: 60,
+        fontSize: 14,
         margin: 10
     },
     GSButtonCard: {
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        marginTop: 20,
+        marginTop: Dimensions.get("window").height > 600 ? 20:5,
         width: "100%",
-        height: 150,
+        height: 100,
     },
     GOText: {
         fontFamily: "OpenStans",
@@ -125,19 +129,19 @@ const CSS = StyleSheet.create({
         padding: 5
     },
     imageBox: {
-        borderRadius: 150,
+        borderRadius: Dimensions.get("window").width * 0.7 / 2,
         borderWidth: 5,
         borderColor: "black",
-        width: "80%",
-        height: 300,
+        width: Dimensions.get("window").width * 0.7,
+        height: Dimensions.get("window").width * 0.7,
         overflow: "hidden",
-        marginVertical: 30
+        marginVertical: Dimensions.get("window").height / 20
 
     },
     GOHighlight: {
         color: Color.primary,
         fontFamily: "OpenStansB",
-        fontSize: 20
+        fontSize: Dimensions.get("window").height > 400 ? 20 :16 
     },
     GOTextCenter: {
         textAlign: "center"
@@ -148,6 +152,8 @@ const CSS = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 25,
+        width:Dimensions.get("window").width / 4,
+        alignItems:"center"
 
 
 
@@ -155,7 +161,7 @@ const CSS = StyleSheet.create({
     MainButtonText: {
         color: "white",
         fontFamily: "OpenStans",
-        fontSize: 18
+        fontSize: 14
     },
 
     listItemBox: {
@@ -180,7 +186,7 @@ const CSS = StyleSheet.create({
     listScroll: {
         flexGrow: 1,
         justifyContent: "flex-end",
-        width: "60%",
+        width: Dimensions.get("window").width > 350 ? "60%" : "80%",
         alignItems: "center"
         // flexDirection:"row",
     },
