@@ -1,4 +1,4 @@
-import { StyleSheet , Dimensions} from "react-native"
+import { StyleSheet , Dimensions,Platform} from "react-native"
 import Color from "./constans/colors"
 
 console.log("Lol")
@@ -13,15 +13,30 @@ const CSS = StyleSheet.create({
         width: "100%",
         height: 90,
         paddingTop: 25,
-        backgroundColor: Color.primary,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        flexDirection:"row"
     },
+    headerIos:{
+        backgroundColor:Color.primary
+    },
+    headerAndriod:{
+        backgroundColor:"black",
+
+    },
+
     headerTitle: {
-        color: "black",
+       
         fontSize: 18,
         fontFamily: "OpenStansB"
     },
+    headerTitleIos:{
+        color: "black",
+    },
+    headerTitleAndroid:{
+        color: "white",
+    },
+
     //Have no height and width
     card: {
         //Shadow only works for iOS
@@ -205,6 +220,11 @@ const CSS = StyleSheet.create({
         justifyContent:"space-around",
         width:"80%"
 
+    },
+    headerImageBox :{
+        height:"100%",
+        width:90,
+        
     }
 
 

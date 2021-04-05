@@ -6,6 +6,7 @@ import Card from "../components/Card"
 import Color from "../constans/colors"
 import MainButton from '../components/MainButton'
 import { Ionicons } from "@expo/vector-icons"
+import * as SO from "expo-screen-orientation"
 
 
 //Somethign we want to NOT be rendered - you create it Ontop
@@ -39,10 +40,31 @@ const GameScreen = (props) => {
     const [availableDeviceHeight, setAvailableDeviceHeight] = useState(Dimensions.get("window").height);
     const currentLow = useRef(1);
     const currentHigh = useRef(100);
+    
+    
 
     const { userNumber, onGameOver } = props
+    //We can have multiple useEffects if we want to specify on what change it will triger
+    //Thx to that we can change our state on every re-render(hopefully it happends)
+    useEffect(() => {
+        const updateLayout = () => {
+            setAvailableDeviceWidth(Dimensions.get("window").width);
+            setAvailableDeviceHeight(Dimensions.get("window").height)
+        }
+        Dimensions.addEventListener("change", updateLayout);
+         SO.addOrientationChangeListener(()=>console.log("SO Changed"))
+
+        return () => {
+            Dimensions.removeEventListener("change", updateLayout);
+        }
+
+    })
+
+
+
     //useEffect is procing after everyReRender, we have to obj destruct
     //To make sure this props only updates in this child
+    //Trigger gameOver
     useEffect(() => {
         if (currentGuess === props.userNumber) {
             props.onGameOver(pastGuesses.length)
@@ -66,77 +88,75 @@ const GameScreen = (props) => {
         setPastGuesses((curPrevGuess) => [nextNumber.toString(), ...curPrevGuess]);
         setCurrentGuess(nextNumber);
     };
- 
-    if(availableDeviceWidth < 350){
+
+    if (availableDeviceWidth < 350) {
 
         //Something
     }
 
 
 
-    if(availableDeviceHeight < 500) {
-        console.log("Dim < 500")
-        console.log(Dimensions.get("window").height)
+    if (availableDeviceHeight < 500) {
         return (
             <View style={CSS.SGSWrapper}>
-            
 
-               <Card style={CSS.gameCardDimHorizontal}>
-                <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
-                <NumberContainer>{currentGuess}</NumberContainer>
-                <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
+
+                <Card style={CSS.gameCardDimHorizontal}>
+                    <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
+                    <NumberContainer>{currentGuess}</NumberContainer>
+                    <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
                 </Card>
-            <FlatList
-                keyExtractor={(item) => item}
-                data={pastGuesses}
-                renderItem={renderListItem.bind(this, pastGuesses.length)}
-                contentContainerStyle={CSS.listScroll}
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-            />
+                <FlatList
+                    keyExtractor={(item) => item}
+                    data={pastGuesses}
+                    renderItem={renderListItem.bind(this, pastGuesses.length)}
+                    contentContainerStyle={CSS.listScroll}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                />
 
-            <View style={CSS.test}>
-                <Text>Denis </Text>
-                <Text>Jakusjev </Text>
-                <Text>BottomBar</Text></View>
-        </View>
+                <View style={CSS.test}>
+                    <Text>Denis </Text>
+                    <Text>Jakusjev </Text>
+                    <Text>BottomBar</Text></View>
+            </View>
 
         );
     }
-    else{
+    else {
         return (
-        <View style={CSS.SGSWrapper}>
-            <NumberContainer>{currentGuess}</NumberContainer>
-            <Card style={CSS.GSButtonCard}>
-                <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
+            <View style={CSS.SGSWrapper}>
+                <NumberContainer>{currentGuess}</NumberContainer>
+                <Card style={CSS.GSButtonCard}>
+                    <MainButton onPress={nextGuessHandeler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color="white" /></MainButton>
 
-                <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
-                
-            </Card>
-            {/* <View style={CSS.listItemContainer}>
+                    <MainButton onPress={nextGuessHandeler.bind(this, "grater")}><Ionicons name="md-add" size={24} color="white" /></MainButton>
+
+                </Card>
+                {/* <View style={CSS.listItemContainer}>
             <ScrollView     >
                 {pastGuesses.map((guess,index)=> renderListItem(guess, pastGuesses.length - index))}
             </ScrollView>
             </View> */}
-            <FlatList
-                keyExtractor={(item) => item}
-                data={pastGuesses}
-                renderItem={renderListItem.bind(this, pastGuesses.length)}
-                contentContainerStyle={CSS.listScroll}
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-            />
+                <FlatList
+                    keyExtractor={(item) => item}
+                    data={pastGuesses}
+                    renderItem={renderListItem.bind(this, pastGuesses.length)}
+                    contentContainerStyle={CSS.listScroll}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                />
 
-            <View style={CSS.test}>
-                <Text>Denis </Text>
-                <Text>Jakusjev </Text>
-                <Text>BottomBar</Text></View>
-        </View>
+                <View style={CSS.test}>
+                    <Text>Denis </Text>
+                    <Text>Jakusjev </Text>
+                    <Text>BottomBar</Text></View>
+            </View>
 
 
-    )
+        )
     }
-    
+
 }
 
 export default GameScreen

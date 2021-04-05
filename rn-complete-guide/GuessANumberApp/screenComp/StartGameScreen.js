@@ -44,10 +44,8 @@ const StartGameScreen = (props) => {
         const updateButtonWidth = () => {
              if(Dimensions.get("window").width / 4>100){
                 setButtonWidth(Dimensions.get("window").width / 4);
-                console.log("Set to /4")
              }
              else {
-                 console.log("Set to 130")
                  setButtonWidth (130);
 
              }

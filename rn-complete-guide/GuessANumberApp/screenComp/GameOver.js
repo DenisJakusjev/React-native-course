@@ -1,10 +1,12 @@
 import React from 'react'
-import { View, Text, Button, Image } from 'react-native'
+import { View, Text, Button, Image, ScrollView , SafeAreaView} from 'react-native'
 import MainButton from '../components/MainButton'
 import CSS from "../CSS"
 const GameOver = (props) => {
     return (
-        <View style={{ ...CSS.SGSWrapper, justifyContent: "center" }}>
+        <SafeAreaView > 
+        <ScrollView>
+        <View style={{ ...CSS.SGSWrapper, justifyContent: "center", paddingVertical:20 }}>
             <Text style={CSS.SGSTitle}>GameOver</Text>
             <View style={CSS.imageBox}>
                 <Image
@@ -21,6 +23,8 @@ const GameOver = (props) => {
             <Text style={{ ...CSS.GOText, ...CSS.GOTextCenter }}>Your phone needed <Text style={CSS.GOHighlight}>{props.numberOfRounds} </Text>rounds to guess number <Text style={CSS.GOHighlight}>{props.userNum}</Text> </Text>
             <MainButton onPress={props.gameResetr}>RG</MainButton>
         </View>
+        </ScrollView>
+        </SafeAreaView>
     )
 }
 

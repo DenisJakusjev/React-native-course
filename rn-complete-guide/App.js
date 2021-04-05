@@ -7,10 +7,12 @@ import WishList from "./WishList/WishList"
 import FlexBoxGuide from "./Components/flexRNdive/flexboxRNguide"
 //GuessAnumber
 import GuessAnumber from "./GuessANumberApp/GuessNumber"
-import {Text} from "react-native"
+//MealsApp with navigation
+import MealsApp from "./MealsAppNav/index"
+import {Text, SafeAreaView} from "react-native"
 const App = () => {
   return (
-    <GuessAnumber/>
+    <MealsApp/>
   )
 }
 
