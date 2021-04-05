@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { View, Text } from 'react-native'
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
+import MealsNav from "./navigation/MealsNavigator"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  <- FirstTry
 //This needs to Add fonts in first way                                                                                          
 const fetchFonts =()=>{ // <- FirstTry
@@ -23,8 +24,6 @@ if(!fontLoaded){
 
 
     return (
-        <View>
-            <Text style={{fontFamily:"open-sans-bold"}}>Alloha</Text>
-        </View>
+            <MealsNav/> 
     )
 }
