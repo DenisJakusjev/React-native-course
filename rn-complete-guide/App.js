@@ -9,7 +9,6 @@ import FlexBoxGuide from "./Components/flexRNdive/flexboxRNguide"
 import GuessAnumber from "./GuessANumberApp/GuessNumber"
 //MealsApp with navigation
 import MealsApp from "./MealsAppNav/index"
-import {Text, SafeAreaView} from "react-native"
 const App = () => {
   return (
     <MealsApp/>
