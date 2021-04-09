@@ -3,8 +3,10 @@ import { View, Text } from 'react-native'
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import MealsNav from "./navigation/MealsNavigator"
+import {enableScreens} from "react-native-screens"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  <- FirstTry
-//This needs to Add fonts in first way                                                                                          
+//This needs to Add fonts in first way 
+enableScreens();                                                                                         
 const fetchFonts =()=>{ // <- FirstTry
    console.log("Fonts are Loaded")
    return Font.loadAsync({

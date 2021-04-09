@@ -1,21 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Platform } from 'react-native'
+import {StyleSheet, FlatList, } from 'react-native'
 import { CATEGORIES } from "../data/dummy-data"
-import Colors from "../constants/Colors"
+import GridItem from "../components/CategoryGridTitle"
 const CategoriesScreen = (props) => {
 
     const renderGridItem = (itemData) => {
-        return<TouchableOpacity style={styles.gridItem} onPress={()=> props.navigation.navigate({routeName:"CategoryMeals", params:{
-            categoryId: itemData.item.id,
-            
-
-        }})}>
-        <View >
-            <Text>{itemData.item.title}</Text>
-        </View>
-        </TouchableOpacity>
+        return <GridItem item={itemData.item} nav={props.navigation}></GridItem>
     }
 
+
+   
 
     return (
         //since we have FlatList it will pass automatickly our itemDate body per default
@@ -34,12 +28,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center"
-    },
-    gridItem: {
-        //To take as mutch space as in needs
-        flex: 1,
-        margin: 15,
-        height: 100
     }
 })
 export default CategoriesScreen
