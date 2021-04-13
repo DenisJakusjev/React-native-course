@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 
 const MealDetailScreen = (props) => {
-    console.log(props.navigation.getParam("item").title)
+    console.log(props.navigation.getParam("item"))
     return (
         <View style={styles.screen}>
             <Text>{props.navigation.getParam("item").title}</Text>
